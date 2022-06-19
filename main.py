@@ -128,6 +128,11 @@ app.layout = dbc.Container([
                     html.P('Enter estimated salary', style={'display': 'inline'}),
                     dcc.Input(type='number', debounce=True, style={'width': '50%', 'float': 'right'}, id = 'salary')
                 ])
+            ]),
+            dbc.Card([
+                dbc.CardBody([
+                    html.Button('Clear inputs', id='clear', n_clicks=0, style={'width': '50%',})
+                ])
             ])
         ], width=7, style={'padding-left': 0}),
         dbc.Col([
@@ -208,5 +213,25 @@ def get_result(credit, country, gender, age, tenure, balance, prods, card, activ
     output = f'That client has {max(y_probs[0])*100:.2f}% probability of {churn} the bank'
     return [html.P(output)]
 
+@app.callback(
+    [
+        Output(component_id='credit', component_property='value'),
+        Output(component_id='country', component_property='value'),
+        Output(component_id='gender', component_property='value'),
+        Output(component_id='age', component_property='value'),
+        Output(component_id='tenure', component_property='value'),
+        Output(component_id='balance', component_property='value'),
+        Output(component_id='prods', component_property='value'),
+        Output(component_id='card', component_property='value'),
+        Output(component_id='active', component_property='value'),
+        Output(component_id='salary', component_property='value'),
+    ],
+    [
+        Input(component_id = 'clear', component_property = 'n_clicks')
+    ]
+)
+def clear_input(n_clicks):
+    return [None,None,None,None,None,None,None,None,None,None]
+
 if __name__ == '__main__':
-    app.run_server()
+    app.run_server(debug =True)
