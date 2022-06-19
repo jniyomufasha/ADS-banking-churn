@@ -234,4 +234,4 @@ def clear_input(n_clicks):
     return [None,None,None,None,None,None,None,None,None,None]
 
 if __name__ == '__main__':
-    app.run_server(debug =True)
+    app.run_server()
