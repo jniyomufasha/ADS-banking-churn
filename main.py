@@ -142,7 +142,7 @@ app.layout = dbc.Container([
                             likely leaving the bank or staying."""),
                     html.P("""Fill the customer banking parameters on the left to get the customer's predictions."""),
                     html.P("""The logic for the predictions can be found on the linkdown here"""),
-                    html.A('Github Link')
+                    html.A('Github Link', href='https://github.com/jniyomufasha/ADS-banking-churn', target='_blank')
                 ])
             ]),
             dbc.Card([
