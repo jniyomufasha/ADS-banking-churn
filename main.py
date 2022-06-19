@@ -10,6 +10,7 @@ import datetime
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
 import pickle
+from sklearn.model_selection import RandomizedSearchCV, GridSearchCV
 
 
 #Importing and preparing the data
